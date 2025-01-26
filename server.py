@@ -11,7 +11,7 @@ import os
 
 
 app = FastAPI()
-api_endpoint = 'http://localhost:8000/loader'
+api_endpoint = 'http://localhost:5000/loader'
 
 
 @app.get("/{url_encode}", response_class=HTMLResponse)
@@ -40,9 +40,8 @@ def read_root(url_encode: str):
             media_type="model/gltf-binary",
             headers={"Content-Disposition": "attachment; filename=modelo.glb"}
         )
-
-
+        
 if __name__ == "__main__":
     import uvicorn
-    port = int(os.getenv("PORT", 8000))  # Usa variável de ambiente para definir a porta
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    port = int(os.getenv("PORT", 5000))
+    uvicorn.run(app, host='0.0.0.0', port=port)
