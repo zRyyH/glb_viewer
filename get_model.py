@@ -2,7 +2,6 @@ import requests
 import io
 import os
 
-
 def baixar_arquivo_memoria(url):
     resposta = requests.get(url, stream=True)
     if resposta.status_code == 200:
@@ -13,7 +12,6 @@ def baixar_arquivo_memoria(url):
         return buffer
     else:
         raise Exception(f"Erro ao baixar arquivo. Código: {resposta.status_code}")
-
 
 def salvar_arquivo_ifc(path, url):
     try:
